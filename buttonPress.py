@@ -11,6 +11,7 @@ long_press_time = 0.8
 index = 0
 
 hue = Hue.Hue(ip=ip, api_key=api_key)
+group_0 = hue.getGroup(0)
 group_5 = hue.getGroup(5)
 scenes_dimmer = hue.getResourcelink(31292).getLinkedScenes()
 scenes_dimmer.reverse()
@@ -61,7 +62,7 @@ def getTimes():
 
 def btn_1_action(long_press):
     if not long_press:
-        group_5.setOn(False)
+        group_0.setOn(False)
 
     if long_press:
         group_5.setScene(hue.getScene('7gzrbM3Nh83Qjr0'))  # (chillen II)
