@@ -5,15 +5,16 @@ import time
 from config import ip, api_key
 from huePyApi import Hue
 
+
 debounce_time = 0.22
 long_press_time = 0.8
 
 index = 0
 
 hue = Hue.Hue(ip=ip, api_key=api_key)
-group_0 = hue.getGroup(0)
-group_5 = hue.getGroup(5)
-scenes_dimmer = hue.getResourcelink(31292).getLinkedScenes()
+group_0 = hue.get_group(0)
+group_5 = hue.get_group(5)
+scenes_dimmer = hue.get_resourcelink(1063).getLinkedScenes()
 scenes_dimmer.reverse()
 scenes_dimmer.append('8CwvoHEQe02ATlp')  # (schlafen II)
 
@@ -62,10 +63,10 @@ def getTimes():
 
 def btn_1_action(long_press):
     if not long_press:
-        group_0.setOn(False)
+        group_0.set_on(False)
 
     if long_press:
-        group_5.setScene(hue.getScene('7gzrbM3Nh83Qjr0'))  # (chillen II)
+        group_5.set_scene(hue.get_scene('7gzrbM3Nh83Qjr0'))  # (chillen II)
 
 
 def btn_2_action(long_press):
@@ -84,7 +85,7 @@ def btn_2_action(long_press):
             if index >= len(scenes_dimmer):
                 index = 0
 
-        group_5.setSceneById(scenes_dimmer[index])
+        group_5.set_scene_by_id(scenes_dimmer[index])
 
     if long_press:
         curr_time = getTimes()[0]
@@ -93,7 +94,7 @@ def btn_2_action(long_press):
             scene = 'mksQRqnXOPeutFA'  # (konzentrieren)
         else:
             scene = '8CwvoHEQe02ATlp'  # (schlafen II)
-        group_5.setSceneById(scene)
+        group_5.set_scene_by_id(scene)
 
 
 if __name__ == '__main__':
