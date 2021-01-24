@@ -19,7 +19,7 @@ I build a bedside table with integrated buttons to control my philips hue lights
 ### Run script in background
 
 run in background:
-`nohup python /home/home_ai/rPi_buttons/rPi_buttons.py > /dev/null &`
+`nohup python3 /home/home_ai/rPi_buttons/rPi_buttons.py > /dev/null &`
 
 kill nohup
 `ps ax | grep rPi_buttons.py --> kill PID`
