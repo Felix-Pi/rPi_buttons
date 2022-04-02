@@ -14,7 +14,7 @@ index = 0
 hue = Hue.Hue(ip=ip, api_key=api_key)
 group_0 = hue.get_group(0)
 group_5 = hue.get_group(5)
-scenes_dimmer = hue.get_resourcelink(1063).getLinkedScenes()
+scenes_dimmer = hue.get_resourcelink(1063).get_linked_scenes()
 scenes_dimmer.reverse()
 scenes_dimmer.append('8CwvoHEQe02ATlp')  # (schlafen II)
 
